@@ -1,0 +1,63 @@
+.navbar {
+  font-family: fantasy;
+}
+
+.navbar-brand {
+  font-size: 35px;
+}
+
+.dropdown {
+  font-size: 20px;
+}
+
+.dropdown-menu ul {
+  font-size: 20px;
+}
+
+.jumbotron {
+  background-image: url('../images/CrowDancer.png');
+  background-repeat: repeat-x;
+  background-size: 428px;
+  height: 275px;
+  background-color: black;
+}
+
+.page-header h1 {
+  font-family: fantasy;
+  text-align: center;
+  font-size: 80px;
+  text-shadow: 2px 2px maroon;
+  margin-bottom: 0px;
+
+}
+.page-header p {
+  font-family: fantasy;
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 15px;
+}
+
+
+.col-lg-4 {
+  text-align: center;
+  font-family: fantasy; 
+}
+
+.col-lg-4 h2 {
+  text-align: center;
+  text-decoration: overline;
+}
+
+#Crow { 
+  max-height: 170px;
+  margin-top: 30px;
+}
+
+.AFlogo {
+  text-align: center;
+}
+
+#Mind {
+  border-radius: 150px;
+}
+
