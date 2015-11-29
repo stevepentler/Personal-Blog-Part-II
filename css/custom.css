@@ -38,7 +38,6 @@
 }
 
 
-
 .col-lg-4 {
   text-align: center;
   font-family: fantasy; 
@@ -47,10 +46,18 @@
 .col-lg-4 h2 {
   text-align: center;
   text-decoration: overline;
-
 }
 
 #Crow { 
   max-height: 170px;
   margin-top: 30px;
 }
+
+.AFlogo {
+  text-align: center;
+}
+
+#Mind {
+  border-radius: 150px;
+}
+
