@@ -68,3 +68,7 @@
 .snow {
   background-color: red;
 }
+
+.row_featurette { 
+  background-image: url('../images/mountain_backdrop.jpeg');
+}
