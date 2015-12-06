@@ -51,17 +51,17 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="#">Biography</a></li>
+                <li><a href="#page-header-top">Main</a></li>
+                <li><a href="#biography-info">Biography</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="projects" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="page-header">Web Development</a></li>
-                    <li><a href="#">Adventure Forward</a></li>
-                    <li><a href="#">Skiboarding</a></li>
+                    <li><a href="https://github.com/stevepentler">Github Projects</a></li>
+                    <li><a href="#Capybara_testing">Development Blog Posts</a></li>
                     <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li class="dropdown-header">Personal Projects/Interests</li>
+                    <li><a href="#adventure_forward">Adventure Forward</a></li>
+                    <li><a href="#skiboarding1">Skiboarding</a></li>
                   </ul>
                 </li>
               </ul>
@@ -100,7 +100,7 @@
           <h2>Development</h2>
           <p>My latest projects on Github</p>
           <p><a class="btn btn-default" href="https://github.com/stevepentler" role="button">GitHub &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+        </div>
         <div class="col-lg-4">
           <a href="https://www.facebook.com/steven.pentler">
             <img class="img-circle" src="images/HeadshotPentler.jpg" alt="Headshot" width="200" height="200">
@@ -113,29 +113,30 @@
           <img id="Crow" src="images/Crow.png" alt="Crow" width="200" height="200">
           <h2>Projects</h2>
           <p>Skiboarding, Experiential Education, etc. </p>
-          <p><a class="btn btn-default" href="#project-info" role="button">Details &raquo;</a></p>
+          <p><a class="btn btn-default" href="#adventure_forward" role="button">Details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
+      <hr class="gradient">
 
       <div id='biography-info' class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">Biography. <span class="text-muted">The life of the crow.</span></h2>
           <p class="lead"><a href="https://www.youtube.com/watch?time_continue=14&v=FFTbHJo4h-o">NOLS</a> --> <a href='https://www.facebook.com/CeibaFoundation/videos/10153381650719558/'> Ecuador </a>--> <a href ='https://www.youtube.com/watch?v=veHQMaxiOmg'>University of Wisconsin</a> --> <a href='http://www.cityyear.org/denver'>City Year Denver</a> --> <a href='https://www.youtube.com/watch?v=l_wLFRsFd7k'>Adventure Forward</a> --> <a href='http://turing.io/'>Turing School for Software and Design</a><br></p>
+          <p class="lead">Did some stuff, now it's web development or bust!</p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" src="images/CrowFlight.png" alt="Crow Flight">
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="gradient">
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 id="project-info" class="featurette-heading">Project I <span class="text-muted">Adventure Forward.</span></h2>
+          <h2 id="adventure_forward" class="featurette-heading">Project I <span class="text-muted">Adventure Forward.</span></h2>
           <p class="lead">Want to help underserved students get their first mountain experiences?<br><a href='https://www.facebook.com/adventureforward/?fref=ts'>Adventure Forward</a> --> <i>The first organization to combine classroom support with Adventure Education.</i> Click the logo to see what we do!
           </p>
           <div class="AFlogo">
@@ -149,12 +150,11 @@
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="gradient">
 
       <div class="row featurette">
-        <div class="snow">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Project II <span class="text-muted">SkiBoarding 3.0.</span></h2>
+          <h2 id="skiboarding1" class="featurette-heading">Project II <span class="text-muted">SkiBoarding 3.0.</span></h2>
           <p class="lead">Let's see what gifts El Niño brings. Start the pow wow with this segment from <i>Into the Mind</i> - Crows and Big Lines.</p>
           <div class="Mind">
             <a href ='https://www.youtube.com/watch?v=pOlxcpXW2V0'>
@@ -170,7 +170,42 @@
       </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="gradient">
+
+      <div id="post1" class="row featurette">
+      <div class="col-md-7 col-md-push-5">
+        <h2 id="Capybara_testing" class="featurette-heading">Capybara testing <span class="text-muted">interact like your audience!</span></h2>
+        <p class="lead">You've made a dope website, but how do you test it from an end-user's perspective? Look no further than <a href='https://rubygems.org/gems/capybara/versions/2.5.0'><strong>Capybara</strong></a>!</p>
+        <p class="lead"> In short, Capybara is a ruby gem that allows developers to write tests that <i>interact with a web application like a user</i>. Within tests you're able to simulate a user clicking buttons & links, filling in forms, and navigating through the site.</p>
+      </div>
+
+
+      <div class="col-md-5 col-md-pull-7">
+        <img class="featurette-image img-responsive center-block" src="images/CrowFlightReverse.png" alt="Crow Flight">
+      </div>
+
+      <div id="commands" class = "lead container">
+        </p>
+        <p class='blo1_text'>First, take a peek at some of the basic commands. For more commands, checkout out this <a href='https://upcase.com/test-driven-rails-resources/capybara.pdf'><i>cheatsheet</i></a>.<br></a> 
+
+      <img src='blog1_images/basic_commands.png' alt='basic commands' width="600">
+      </div>
+
+      <div class = "lead container">
+        <p> The image below shows what testing looks like in practice with a user story framework. In this example we are able to navigate to a page, click a link, fill in a form, submit the form. Then we verify our input using the Capybara specific test assertion "has_content."</p>
+        <p> Take special note of the within command, which is used to define the scope of the code you interact with. In this example, within uses a loop to reference only the form that has the id of "edit form." This is especially important if you have multiple forms, links, or buttons on the same page. <br> </a> <img  src='blog1_images/example.png' alt='Example test' width="auto" height="500">
+      </div>
+
+      <div id="linking" class="lead container">
+        <p class='blog1_text'>In terms of setup, make sure you have the Capybara gem installed and bundled. Define a class that inherits from Minitest, and include Capybara::DSL. Note that in the test above, the UserEditsTask testing class inherits from FeatureTest as opposed to Minitest::Test.<br></a> <img  src='blog1_images/test_helper.png' alt='linking in test_helper' width="auto" height="150">
+        </p>
+      </div>
+
+      <div class="lead container">
+      <p class='blog1_text'>There's much more to explore with Capybara, but hopefully by now you understand that it can be a powerful tool for feature testing. If you're goal is a positive user experience, get to work with Capybara!</p>
+      </div>
+
+    <hr class="gradient">
 
       <!-- /END THE FEATURETTES -->
 
