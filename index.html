@@ -16,19 +16,6 @@
     <!-- Bootstrap custom CSS -->
     <link href="css/custom.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
   </head>
@@ -175,8 +162,8 @@
       <div id="post1" class="row featurette">
       <div class="col-md-7 col-md-push-5">
         <h2 id="Capybara_testing" class="featurette-heading">Capybara testing <span class="text-muted">interact like your audience!</span></h2>
-        <p class="lead">You've made a dope website, but how do you test it from an end-user's perspective? Look no further than <a href='https://rubygems.org/gems/capybara/versions/2.5.0'><strong>Capybara</strong></a>!</p>
-        <p class="lead"> In short, Capybara is a ruby gem that allows developers to write tests that <i>interact with a web application like a user</i>. Within tests you're able to simulate a user clicking buttons & links, filling in forms, and navigating through the site.</p>
+        <p class="lead">You've made a dope website, but how do you test it from an end-user's perspective? Checkout <a href='https://rubygems.org/gems/capybara/versions/2.5.0'><strong>Capybara</strong></a>!</p>
+        <p class="lead"> In short, Capybara is a ruby gem that allows developers to write tests that <i>interact with a web application like a user</i>. You can perform quality control and simulate user interaction by clicking buttons & links, filling in forms, and navigating through the site.</p>
       </div>
 
 
@@ -186,18 +173,24 @@
 
       <div id="commands" class = "lead container">
         </p>
-        <p class='blo1_text'>First, take a peek at some of the basic commands. For more commands, checkout out this <a href='https://upcase.com/test-driven-rails-resources/capybara.pdf'><i>cheatsheet</i></a>.<br></a> 
+        <p class='blog1_text'>First, take a peek at some of the basic commands. For more commands, checkout out this <a href='https://upcase.com/test-driven-rails-resources/capybara.pdf'><i>cheatsheet</i></a>.<br></a> 
 
       <img src='blog1_images/basic_commands.png' alt='basic commands' width="600">
       </div>
 
       <div class = "lead container">
         <p> The image below shows what testing looks like in practice with a user story framework. In this example we are able to navigate to a page, click a link, fill in a form, submit the form. Then we verify our input using the Capybara specific test assertion "has_content."</p>
-        <p> Take special note of the within command, which is used to define the scope of the code you interact with. In this example, within uses a loop to reference only the form that has the id of "edit form." This is especially important if you have multiple forms, links, or buttons on the same page. <br> </a> <img  src='blog1_images/example.png' alt='Example test' width="auto" height="500">
+        <p> Take special note of the within command, which is used to define the scope of the code you interact with. In this example, within uses a loop to reference only the form that has the css id of "edit form." This is especially important if you have multiple forms, links, or buttons on the same page. <br> </a> <img  src='blog1_images/example.png' alt='Example test' width="auto" height="500">
+      </div>
+
+      <div class = "lead container">
+        <p> If you're still getting an Ambiguous match error, your first instinct should be to scope with greater specificity. Create a unique css identifier and use a within loop.
+        <p> This is a more specific example of scoping from a different project. Notice how we find the ordered list (ol) with the id of <i>#most_pop_referrers_list</i>. Then we further specify that we want the list item's <i>(li) nth-child(#)</i>, where # is the number of the list element. For example, <i>'ol#most_pop_referrers_list li:nth-child(1)</i>' will scope the second element of the list. Then it will check for the turing url: <i>"http://turing.io (2)</i>" </p>
+        <br> </a> <img  src='blog1_images/scoping_2.png' alt='More Scoping' width="auto" height="500">
       </div>
 
       <div id="linking" class="lead container">
-        <p class='blog1_text'>In terms of setup, make sure you have the Capybara gem installed and bundled. Define a class that inherits from Minitest, and include Capybara::DSL. Note that in the test above, the UserEditsTask testing class inherits from FeatureTest as opposed to Minitest::Test.<br></a> <img  src='blog1_images/test_helper.png' alt='linking in test_helper' width="auto" height="150">
+        <p class='blog1_text'>In terms of setup, make sure you have the Capybara gem installed and bundled. Define a class that inherits from Minitest, and include Capybara::DSL. Note that in the first test above, the UserEditsTask testing class inherits from FeatureTest as opposed to Minitest::Test. That's because we set it up so our FeatureTest inherits from Minitest, while including the Capybara::DSL.<br></a> <img  src='blog1_images/test_helper.png' alt='linking in test_helper' width="auto" height="150">
         </p>
       </div>
 
