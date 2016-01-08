@@ -43,8 +43,9 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="https://github.com/stevepentler">Github Projects</a></li>
-                    <li><a href="#Capybara_testing">Development Blog Posts</a></li>
+                    <li><a href="https://github.com/stevepentler">Development: Github Projects</a></li>
+                    <li><a href="#Capybara_testing">Development: Capybara</a></li>
+                    <li><a href="#Shoulda-Matchers"> Development: Shoulda Matchers</a></li>
                     <li role="separator" class="divider"></li>
                     <li class="dropdown-header">Personal Projects/Interests</li>
                     <li><a href="#adventure_forward">Adventure Forward</a></li>
@@ -174,19 +175,19 @@
       <div id="commands" class = "lead container">
         </p>
         <p class='blog1_text'>First, take a peek at some of the basic commands. For more commands, checkout out this <a href='https://upcase.com/test-driven-rails-resources/capybara.pdf'><i>cheatsheet</i></a>.<br></a> 
-
-      <img src='blog1_images/basic_commands.png' alt='basic commands' width="600">
+        <img src='blog1_images/basic_commands.png' alt='basic commands' width="600">
       </div>
 
       <div class = "lead container">
         <p> The image below shows what testing looks like in practice with a user story framework. In this example we are able to navigate to a page, click a link, fill in a form, submit the form. Then we verify our input using the Capybara specific test assertion "has_content."</p>
-        <p> Take special note of the within command, which is used to define the scope of the code you interact with. In this example, within uses a loop to reference only the form that has the css id of "edit form." This is especially important if you have multiple forms, links, or buttons on the same page. <br> </a> <img  src='blog1_images/example.png' alt='Example test' width="auto" height="500">
+        <p> Take special note of the within command, which is used to define the scope of the code you interact with. In this example, within uses a loop to reference only the form that has the css id of "edit form." This is especially important if you have multiple forms, links, or buttons on the same page. <br> </a>
+        <img  src='blog1_images/example.png' alt='Example test' width="auto" height="500">
       </div>
 
       <div class = "lead container">
         <p> If you're still getting an Ambiguous match error, your first instinct should be to scope with greater specificity. Create a unique css identifier and use a within loop.
-        <p> This is a more specific example of scoping from a different project. Notice how we find the ordered list (ol) with the id of <i>#most_pop_referrers_list</i>. Then we further specify that we want the list item's <i>(li) nth-child(#)</i>, where # is the number of the list element. For example, <i>'ol#most_pop_referrers_list li:nth-child(1)</i>' will scope the second element of the list. Then it will check for the turing url: <i>"http://turing.io (2)</i>" </p>
-        <br> </a> <img  src='blog1_images/scoping_2.png' alt='More Scoping' width="auto" height="500">
+        <p> This is a more specific example of scoping from a different project. Notice how we find the ordered list (ol) with the id of <i>#most_pop_referrers_list</i>. Then we further specify that we want the list item's <i>(li) nth-child(#)</i>, where # is the number of the list element. For example, <i>'ol#most_pop_referrers_list li:nth-child(1)</i>' will scope the second element of the list. Then it will check for the turing url: <i>"http://turing.io (2)</i>" </p> 
+      </a> <img  src='blog1_images/scoping_2.png' alt='More Scoping' width="auto" height="500">
       </div>
 
       <div id="linking" class="lead container">
@@ -196,17 +197,66 @@
 
       <div class="lead container">
       <p class='blog1_text'>There's much more to explore with Capybara, but hopefully by now you understand that it can be a powerful tool for feature testing. If you're goal is a positive user experience, get to work with Capybara!</p>
-      </div>
+      
 
     <hr class="gradient">
+        <div class="lead container">
+        <div class="row featurette">
+        <div class="col-md-7">
+          <h2 id="Shoulda-Matchers" class="featurette-heading">Shoulda Matchers <span class="text-muted">Simplify Validation Tests</span></h2>
+          <p class="lead">Are you sick of writing tests to validate your models, or just gifteed with solid one-liners? Check out <a href='http://matchers.shoulda.io/'><strong>shoulda-matchers</strong></a>!</p>
+          <p class="lead"> Shoulda matchers is a gem that allows developers to simplify validation testing with a new suite of testing methods called <i>matchers</i>. Accordingly, validations can generally be tested in one clean test.</p>
+      </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="images/CrowFlight.png" alt="Crow Flight">
+        </div>
+      </div>
+      </div>
+
+      <div id="commands" class = "lead container">
+        </p>
+        <p class='blog1_text'>First, take a peek at the matchers. For more commands, checkout out the bottom of this page for the <a href='http://matchers.shoulda.io/'><i>cheatsheet</i></a>.<br></a> 
+        <img src='blog2_images/matchers.png' alt='matchers' width="1000">
+
+      <div class = "lead container">
+        <p> Now for an example. We define our validations in the model. The goal here is to ensure than a Resort Object can not be added to the database unless it meets the criteria defined in the validations.
+          <br><br>
+           We validate that each Resort Object has the presence of a name, image_path, trail_map_path, etc. Further, the name, image_path, and trail_map_path must be unique. This will prevent a user from loading multiple resorts with the same name.<br>
+        <br><img  src='blog2_images/model_validations.png' alt='model validations' width="1000" height="auto"><br>
+
+        <p> These validations are fantastic if they work, but we want to <i>verify our verications</i> with some tests. It would get very repetetive to write an RSpec test for each example, so shoulda-matchers allows a uniform, clear, and short format. The following example is <strong>boring</strong> because the tests all pass.<br>
+        <br><img  src='blog2_images/model_validations_spec.png' alt='model validations test' width="1000" height="auto"><br>
+
+        <br><p> Now, the main event! If a Resort Object is created or updated, but doesn't meet these specifications, the test will fail and notify you of the missing or incorrect attribute.<br>
+        <br> In this example, I have added the has_many validation as well as a MiniTest example at the bottom. But more importantly, notice that we have a validation for :something_that_doesnt_exist. The test will fail because we are expecting a Resort Object to have this attribute. The error is apparent in the failed test in the second image.<br>
+        <br><img  src='blog2_images/missing_validation.png' alt='invalid attribute example' width="1000" height="auto"><br>
+        <br><img  src='blog2_images/failed_test.png' alt='failing test' width="1000" height="auto"><br>
+
+      
+       <p><strong>Installation:</strong> First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle.
+        <br> If you are using RSpec and ActiveRecord, head to your test_helper. Insert these lines of code in your test_helper.rb file.
+        <br>
+        <br><img  src='blog2_images/configuration.png' alt='configuring test helper' width="1000" height="auto">
+        <br> If you are using a different configuration, modify your configuration according to these specifications. 
+        <br><img  src='blog2_images/other_configurations.png' alt='alternate configurations test helper' width="1000" height="auto">
+
+
+      </div>
+    </div>
+
+      <hr class="gradient">
 
       <!-- /END THE FEATURETTES -->
 
       <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#page-header-top">Back to top</a></p>
-        <p>Steve Pentler 2015 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+      <container>
+        <footer>
+          <p class="pull-right"><a href="#page-header-top">Back to top</a></p>
+          <p>Steve Pentler 2015 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+      </container>
 
     </div><!-- /.container -->
 
