@@ -234,8 +234,15 @@
         <br><img  src='blog2_images/missing_validation.png' alt='invalid attribute example' width="1000" height="auto"><br>
         <br><img  src='blog2_images/failed_test.png' alt='failing test' width="1000" height="auto"><br>
 
-      
-       <p><strong>Installation:</strong> First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle.
+        <br><p> Shoot! You're getting an error like the one below! Your validations expect an error message.<br>(This is from a different application)<br>
+        <br><img  src='blog2_images/view_failure.png' alt='expected message failure' width="1000" height="auto"><br>
+
+
+        <br><p> It puts up a fuss if you don't display error messages when necessary. I've found it best to display these errors directly to the views/layouts/application.html.erb file. This should help your test's pass if they are throwing <br>
+        <br><img  src='blog2_images/views.png' alt='views error integration' width="1000" height="auto"><br>
+        <br>
+
+       <br><p><strong>Installation:</strong> First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle.
         <br> If you are using RSpec and ActiveRecord, head to your test_helper. Insert these lines of code in your test_helper.rb file.
         <br>
         <br><img  src='blog2_images/configuration.png' alt='configuring test helper' width="1000" height="auto">
