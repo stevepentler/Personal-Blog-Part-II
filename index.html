@@ -180,19 +180,21 @@
 
       <div class = "lead container">
         <p> The image below shows what testing looks like in practice with a user story framework. In this example we are able to navigate to a page, click a link, fill in a form, submit the form. Then we verify our input using the Capybara specific test assertion "has_content."</p>
-        <p> Take special note of the within command, which is used to define the scope of the code you interact with. In this example, within uses a loop to reference only the form that has the css id of "edit form." This is especially important if you have multiple forms, links, or buttons on the same page. <br> </a>
+        <p> Take special note of the within command, which is used to define the scope of the code you interact with. In this example, within uses a loop to reference only the form that has the CSS id of "edit form." This is especially important if you have multiple forms, links, or buttons on the same page. <br> </a>
         <img  src='blog1_images/example.png' alt='Example test' width="auto" height="500">
       </div>
 
       <div class = "lead container">
-        <p> If you're still getting an Ambiguous match error, your first instinct should be to scope with greater specificity. Create a unique css identifier and use a within loop.
+        <p> If you're still getting an Ambiguous match error, your first instinct should be to scope with greater specificity. Create a unique CSS identifier and use a within loop.
         <p> This is a more specific example of scoping from a different project. Notice how we find the ordered list (ol) with the id of <i>#most_pop_referrers_list</i>. Then we further specify that we want the list item's <i>(li) nth-child(#)</i>, where # is the number of the list element. For example, <i>'ol#most_pop_referrers_list li:nth-child(1)</i>' will scope the second element of the list. Then it will check for the turing url: <i>"http://turing.io (2)</i>" </p> 
-      </a> <img  src='blog1_images/scoping_2.png' alt='More Scoping' width="auto" height="500">
+      </a> <img src='blog1_images/scoping_2.png' alt='More Scoping' width="auto" height="500">
       </div>
 
       <div id="linking" class="lead container">
-        <p class='blog1_text'>In terms of setup, make sure you have the Capybara gem installed and bundled. Define a class that inherits from Minitest, and include Capybara::DSL. Note that in the first test above, the UserEditsTask testing class inherits from FeatureTest as opposed to Minitest::Test. That's because we set it up so our FeatureTest inherits from Minitest, while including the Capybara::DSL.<br></a> <img  src='blog1_images/test_helper.png' alt='linking in test_helper' width="auto" height="150">
-        </p>
+        <p class='blog1_text'><strong>Installation:</strong> Make sure you have the Capybara gem installed and bundled in your test/development environment. If you are using Rails with MiniTest, head to your test_heler.rb file. Require 'capybara/rails' at the top. Next, define a class that inherits from Minitest, and include Capybara::DSL. Note that in the first test above, the UserEditsTask testing class inherits from FeatureTest as opposed to Minitest::Test. That's because the FeatureTest inherits from Minitest, thus it includes Capybara::DSL.<br></a> <img  src='blog1_images/test_helper.png' alt='linking in test_helper' width="auto" height="150">
+        </p><br>
+        <p><strong>Pro Tip:</strong> The most frustrating error with Capybara is generally due to scoping issues. Head to your Gemfile and require the <i>gem 'launchy'</i> in your test development environment. Next, insert <strong>save_and_open_page</strong> into your test (generally the line before it fails) and run your test. Launchy will open a display page in your browser so you can see what's happening. Next, right click on the area you're interested in and select "inspect element." This will give you access to the CSS components you can use for scoping.</p>
+        <p><strong>Pro Tip:</strong> It's good practice to assert the page you are viewing on the route you'd expect. Do this with: <br><strong>assert_equal expected_path(variable), current_path</strong> <br> Modify the expected_path(variable) to what you expect. The "variable" is any variable that is necessary for the route to display, such as an object that rails can pull an id from.</p> 
       </div>
 
       <div class="lead container">
@@ -205,7 +207,7 @@
         <div class="col-md-7">
           <h2 id="Shoulda-Matchers" class="featurette-heading">Shoulda Matchers <span class="text-muted">Simplify Validation Tests</span></h2>
           <p class="lead">Are you sick of writing tests to validate your models, or just gifted with solid one-liners? Check out <a href='http://matchers.shoulda.io/'><strong>shoulda-matchers</strong></a>!</p>
-          <p class="lead"> Shoulda matchers is a gem that allows developers to simplify validation testing with a new suite of testing methods called <i>matchers</i>. Accordingly, validations can generally be tested in one clean test.</p>
+          <p class="lead"> Shoulda matchers is a gem that allows developers to simplify validation testing with a new suite of testing methods called <i>matchers</i>. Accordingly, validations can generally be tested in one clean line rather than lengthy, redundant tests.</p>
       </div>
         <div class="col-md-2">
         </div>
@@ -217,39 +219,46 @@
 
       <div id="commands" class = "lead container">
         </p>
-        <p class='blog1_text'>First, take a peek at the matchers methods you will use in your specs. Checkout out the <a href='http://matchers.shoulda.io/'><i>cheatsheet</i></a>.<br></a> 
+        <p class='blog1_text'>First, take a peek at the matchers methods you will use in your specs. Checkout out the <a href='http://matchers.shoulda.io/'><i>cheatsheet</i></a> too.<br></a> 
         <img src='blog2_images/matchers.png' alt='matchers' width="1000">
 
       <div class = "lead container">
-        <p> Now for an example. We define our validations in the model. The goal here is to ensure that a Resort Object can not be added to the database unless it meets the criteria defined in the validations.
+        <p> Now for an example. We define our validations in the model. The goal here is to ensure that a Resort Object can not be added to the database unless it meets all of the criteria defined in the validations. Ideally, we want Rails to throw an error if any of the validations aren't met.
           <br><br>
-           We validate that each Resort Object has the presence of a name, image_path, trail_map_path, etc. Further, the name, image_path, and trail_map_path must be unique. This will prevent a user from loading multiple resorts with the same name.<br>
+           In each model, we define the validations. Each Resort Object must have the presence of a name, image_path, trail_map_path, etc. Further, the name, image_path, and trail_map_path must be unique in this scenario.<br>
         <br><img  src='blog2_images/model_validations.png' alt='model validations' width="1000" height="auto"><br>
 
-        <p> These validations are fantastic if they work, but we want to <i>verify our verications</i> with some tests. It would get very repetetive to write an RSpec test for each example, so shoulda-matchers allows a uniform, clear, and short format. The following example is <strong>boring</strong> because the tests all pass.<br>
+        <p> These validations are fantastic if they work, but we want to <i>verify our verifications</i> with some tests in the resort_spec.rb (resort_test.rb in MiniTest). Without Shoulda Matchers, we would have to write specific tests for each validation that fulfill all of the criteria except for the validation we want to test. This is cumbersome and violates the DRY principle. Shoulda Matchers allows a uniform, clear, and short format. The following example is an RSpec example, but it's rather <strong>boring</strong> because the tests all pass. All of the validations are fulfilled.<br>
         <br><img  src='blog2_images/model_validations_spec.png' alt='model validations test' width="1000" height="auto"><br>
 
-        <br><p> Now, the main event! If a Resort Object is created or updated, but doesn't meet these specifications, the test will fail and notify you of the missing or incorrect attribute.<br>
-        <br> In this example, I have added the has_many validation as well as a MiniTest example at the bottom. But more importantly, notice that we have a validation for :something_that_doesnt_exist. The test will fail because we are expecting a Resort Object to have this attribute. The error is apparent in the failed test in the second image.<br>
+        <br><p> Now, the main event! We are more interested in what happens to the site when all of the validations are NOT fulfilled. If a Resort Object is created or updated, but doesn't meet these specifications, we want a test to fail and notify you of the missing or incorrect attribute.<br>
+        <br> Notice that we have a validation for :something_that_doesnt_exist. The test will fail because we are expecting a Resort Object to have this attribute, but it doesn't exist in the schema, nor is this attribute ever associated with the Resort Object. The error is apparent in the failed test in the second image.<br>
         <br><img  src='blog2_images/missing_validation.png' alt='invalid attribute example' width="1000" height="auto"><br>
         <br><img  src='blog2_images/failed_test.png' alt='failing test' width="1000" height="auto"><br>
 
-        <br><p> Shoot! Now you have your models and validations setup correctly, but you're still getting an error message like the one below! This is to inform you that your validations expect an error message.<br>(This is from a different application)<br>
+        <br><p> Shoot! Now you have your models validations, test validations, and a failing test, but you're still getting an error message like the one below! The reason is that Shoulda Matcher validations expect(RSpec) or should(MiniTest) display an error.<br>
         <br><img  src='blog2_images/view_failure.png' alt='expected message failure' width="1000" height="auto"><br>
 
 
-        <br><p> It puts up a fuss if you don't display error messages when necessary. I've found it best to display these errors directly to the views/layouts/application.html.erb file. This should help your test's pass if they are throwing <br>
+        <br><p> In practice, I prefer to add flashes to display messages during sad path tests. If a new object is being created but doesn't save because it fails a validation, I want a particular error to show up.<br>
+        First, add flashes to your app/layouts/application.html.erb file somewhere in the body section. The standard is to place these above the <%= yield %> so it catches the users eye when a form or other information if filled out incorrectly.<br>
+        <br><img  src='blog2_images/flashes.png' alt='flash integration' width="600" height="auto"><br>
+        <br>
+        <p>Then add flash messages into your controller when you want them to be displayed. Disclaimer, this is from a different, top secret project.</p>
+        <br><img  src='blog2_images/controller_flash.png' alt='flash integration in the controller' width="1000" height="auto"><br>
+        <br><p>Another option is to display the error messages directly in the layout/applicaiton.html.erb file.</p>
         <br><img  src='blog2_images/views.png' alt='views error integration' width="1000" height="auto"><br>
         <br>
+        <p><strong>Pro Tip:</strong> Remember to update your strong_params private methods if you start requiring an attribute that wasn't previously part of a form or is new to the schema. I spent about an hour tracing a bug back to the fact that I hadn't updated the permitted attributes.</p>
 
-       <br><p><strong>Installation:</strong> First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle.
-        <br> If you are using RSpec and ActiveRecord, head to your test_helper. Insert these lines of code in your test_helper.rb file.
+       <br><p><strong>Installation:</strong><br>
+        For RSpec: First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle. Then head over to your rails_helper.rb file and insert the following lines of code. 
         <br>
         <br><img  src='blog2_images/configuration.png' alt='configuring test helper' width="1000" height="auto">
-        <br> If you are using a different configuration, modify your configuration according to these specifications. 
-        <br><img  src='blog2_images/other_configurations.png' alt='alternate configurations test helper' width="1000" height="auto">
-
-
+        <br><p>If you are using MiniTest, you will need to install both: <br>gem 'shoulda', '~> 3.5' 
+        <br>gem 'shoulda-matchers', '~> 2.0' 
+        <br>
+        MiniTest does not require any additional setup once these two gems are installed and bundled. The functionality is the same, except you will use "should validate..." in place of the "it {is_expected_to validate...}."</p>
       </div>
     </div>
 
