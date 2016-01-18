@@ -220,45 +220,48 @@
       <div id="commands" class = "lead container">
         </p>
         <p class='blog1_text'>First, take a peek at the matchers methods you will use in your specs. Checkout out the <a href='http://matchers.shoulda.io/'><i>cheatsheet</i></a> too.<br></a> 
-        <img src='blog2_images/matchers.png' alt='matchers' width="1000">
+        <img src='blog2_images/matchers.png' alt='matchers' width="800">
 
       <div class = "lead container">
         <p> Now for an example. We define our validations in the model. The goal here is to ensure that a Resort Object can not be added to the database unless it meets all of the criteria defined in the validations. Ideally, we want Rails to throw an error if any of the validations aren't met.
           <br><br>
            In each model, we define the validations. Each Resort Object must have the presence of a name, image_path, trail_map_path, etc. Further, the name, image_path, and trail_map_path must be unique in this scenario.<br>
-        <br><img  src='blog2_images/model_validations.png' alt='model validations' width="1000" height="auto"><br>
+        <br><img  src='blog2_images/model_validations.png' alt='model validations' width="800" height="auto"><br>
 
         <p> These validations are fantastic if they work, but we want to <i>verify our verifications</i> with some tests in the resort_spec.rb (resort_test.rb in MiniTest). Without Shoulda Matchers, we would have to write specific tests for each validation that fulfill all of the criteria except for the validation we want to test. This is cumbersome and violates the DRY principle. Shoulda Matchers allows a uniform, clear, and short format. The following example is an RSpec example, but it's rather <strong>boring</strong> because the tests all pass. All of the validations are fulfilled.<br>
-        <br><img  src='blog2_images/model_validations_spec.png' alt='model validations test' width="1000" height="auto"><br>
+        <br><img  src='blog2_images/model_validations_spec.png' alt='model validations test' width="800" height="auto"><br>
 
         <br><p> Now, the main event! We are more interested in what happens to the site when all of the validations are NOT fulfilled. If a Resort Object is created or updated, but doesn't meet these specifications, we want a test to fail and notify you of the missing or incorrect attribute.<br>
         <br> Notice that we have a validation for :something_that_doesnt_exist. The test will fail because we are expecting a Resort Object to have this attribute, but it doesn't exist in the schema, nor is this attribute ever associated with the Resort Object. The error is apparent in the failed test in the second image.<br>
-        <br><img  src='blog2_images/missing_validation.png' alt='invalid attribute example' width="1000" height="auto"><br>
-        <br><img  src='blog2_images/failed_test.png' alt='failing test' width="1000" height="auto"><br>
+        <br><img src='blog2_images/missing_validation.png' alt='invalid attribute example' width="800" height="auto"><br>
+        <br><img  src='blog2_images/failed_test.png' alt='failing test' width="800" height="auto"><br>
 
         <br><p> Shoot! Now you have your models validations, test validations, and a failing test, but you're still getting an error message like the one below! The reason is that Shoulda Matcher validations expect(RSpec) or should(MiniTest) display an error.<br>
-        <br><img  src='blog2_images/view_failure.png' alt='expected message failure' width="1000" height="auto"><br>
+        <br><img  src='blog2_images/view_failure.png' alt='expected message failure' width="700" height="auto"><br>
 
 
         <br><p> In practice, I prefer to add flashes to display messages during sad path tests. If a new object is being created but doesn't save because it fails a validation, I want a particular error to show up.<br>
         First, add flashes to your app/layouts/application.html.erb file somewhere in the body section. The standard is to place these above the <%= yield %> so it catches the users eye when a form or other information if filled out incorrectly.<br>
-        <br><img  src='blog2_images/flashes.png' alt='flash integration' width="600" height="auto"><br>
+        <br><img  src='blog2_images/flashes.png' alt='flash integration' width="400" height="auto"><br>
         <br>
         <p>Then add flash messages into your controller when you want them to be displayed. Disclaimer, this is from a different, top secret project.</p>
-        <br><img  src='blog2_images/controller_flash.png' alt='flash integration in the controller' width="1000" height="auto"><br>
+        <br><img  src='blog2_images/controller_flash.png' alt='flash integration in the controller' width="700" height="auto"><br>
         <br><p>Another option is to display the error messages directly in the layout/applicaiton.html.erb file.</p>
-        <br><img  src='blog2_images/views.png' alt='views error integration' width="1000" height="auto"><br>
+        <br><img  src='blog2_images/views.png' alt='views error integration' width="700" height="auto"><br>
         <br>
         <p><strong>Pro Tip:</strong> Remember to update your strong_params private methods if you start requiring an attribute that wasn't previously part of a form or is new to the schema. I spent about an hour tracing a bug back to the fact that I hadn't updated the permitted attributes.</p>
 
        <br><p><strong>Installation:</strong><br>
-        For RSpec: First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle. Then head over to your rails_helper.rb file and insert the following lines of code. 
+        For RSpec: First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle. Then head over to your rails_helper.rb file and insert the following lines of code. Don't forget to add the error flashes in your controllers as you proceed. 
         <br>
-        <br><img  src='blog2_images/configuration.png' alt='configuring test helper' width="1000" height="auto">
+        <br><img  src='blog2_images/configuration.png' alt='configuring test helper' width="700" height="auto">
         <br><p>If you are using MiniTest, you will need to install both: <br>gem 'shoulda', '~> 3.5' 
         <br>gem 'shoulda-matchers', '~> 2.0' 
         <br>
-        MiniTest does not require any additional setup once these two gems are installed and bundled. The functionality is the same, except you will use "should validate..." in place of the "it {is_expected_to validate...}."</p>
+        MiniTest does not require any additional setup once these two gems are installed and bundled. The functionality is the same, except you will use "should validate..." in place of the "it {is_expected_to validate...}." Don't forget to add the error flashes in your controllers as you proceed. </p>
+        <br>
+        <p><strong>Pro Tip:</strong> If you are using MiniTest, DO NOT put the validations inside of a test. Nest them right under the model or you will get an error along the lines of "undefined method: should." See the example below.</p><br>
+        <br><img src='blog2_images/minitest_example.png' alt='MiniTest Example' width="600" height="auto"><br>
       </div>
     </div>
 
