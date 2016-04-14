@@ -154,7 +154,51 @@
       </div>
 
       <hr class="gradient">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <hr class="gradient">
+        <div class="lead container">
+        <div class="row featurette">
+        <div class="col-md-7">
+          <h2 id="React-Electron" class="featurette-heading">Creating a Terrible User Experience<h2 class="text-muted">With React & Electron</span></h2>
+          <p class="lead">Do you love feeling powerless? Do you long for the feelings that arose when your computer used to freeze up decades ago? Me neither. But this is exactly what my new app called for...</p>
+          <p class="lead"> Pomodoros have been a hot trend in programming recently, a concept that encourages taking 5 minute breaks for every 25-30 minutes worked. This concept is solid - maxmize the productivity, while building in breaks for fresh outlooks on those hard to solve problems. Unfortunately, I suck at obeying these concepts, and so does my partner, Jordan Lawler.</p>
+          <p class="lead">Without fail, we've managed to justify working through pomodoro breaks when the timer goes off. Common phrases include:
+          <p>-<i>"Just after I fix this one thing."</i></p>
+          <p>-<i>"After this commit."</i></p>
+          <p>-<i>"Let's take a break after we refactor..."</i></p>
+          This unhealthy delusion encouraged us to set out on a quest to develop the worst possible user experience of all time. An app that takes over your screen and leaves you powerlessly watching a countdown with no choice but to take a break. An app we call, Kryptonite.</p>
+      </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="images/CrowFlight.png" alt="Crow Flight">
+        </div>
+      </div>
+      </div>
 
+      <div id="commands" class = "lead container">
+        <h3>The New Frontier: React & Electron</h3>
+        <p>With no previous knowledge of React and having never heard the term electron outside of scientific context, we were tasked to create an app that used these two <i>frameworks</i> (I clearly use that term loosely). Within the first 30 minutes we were abusing the power of Electron. We knew we had the correct tool to create madness upon discovering the <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md">Browser Window events</a>. If you look here, you'll find a lot of examples of restrictions you'll probably never want to place on your user.
+        <br>
+        <br><img  src='blog4_images/Window-Events.png' alt='Window Restrictions' width="400" height="auto"><br>
+
+        <p> Figuring this out was like bringing home a rescue dog for a week just to see how things go. You damn well know you can't give it back, but you still have to justify why it's worth keeping. This ugly little monster from the pound gifted users the inability to do anything with our app but force quit, and we were determined to justify it. </p>
+
+        <p>We decided to <i>add value</i> to the world by forcing users to take breaks, but giving them the option to <i>opt-out</i>. Here's the catch, a force quit or click on the opt out button tracks how many seconds remain of your 300 second (5 minute) break, then donates that amount to a charity. And guess what, the instructors bought it!!!!! Now we just had to figure out JavaScript, React, Electron, & Stripe for Electron</p>
+        <br><br>
+
+        <h3>Explaining React with Bolo Ties</h3>
+        <p>React is fascinating, even when you don't entirely know how to use it. I'm going to explain the concept with a story.
+        Imagine you're a teenager and the middle of three boys. You're definitely the experimental free spirit of your family. Your annoying little buck-toothed brother wants nothing more than to be you. If you start wearing an eye-path while watching Saturday Morning re-runs of "The Price is Right", he'll run to his room and grab the eye-patch from his birthday party at Pirate's Cove miniature golf and slap it on his face. So you say, "STOP LOOKING AT ME" and carve a Slayer tattoo into your neck. Well, you idiot, now your 5th grade brother has a slayer tattoo carved in his neck and your mom is going to be pissed.</p>
+        <p>Now computer stuff. You are the virtual DOM (Document Object Model). Your little brother is the <i>original</i> DOM that pays meticulous attention to whether any aspect of your appearance changes. If you change one component of appearance, your little brother catches it, and changes only that aspect of himself.</p>
+        <p>Extending on this analogy - Your appearance is made up of a bunch of components. Your cowboy boots, belt buckle, Canadian tuxedo, mullet, and eye patch compose your entire appearance. Your brother is obviously wearing the same thing. Now let's say one day you step up your badassery and add a bolo tie into the mix. Does your brother have to change his entire outfit? HELL NO! He only has to keep wearing what he already has on and add the component of your atire that has changed - the bolo tie. This is the beauty of React. That story illustrates that it doesn't make much sense to change an entire outfit just to add a bolo tie, but thats what happens in frameworks that make a HTTP request each time any aspect of the DOM element changes. React, on the other hand, only pays attention to what has changed, and keeps rocking it's good looking Canadian Tuxedo while you're adding the bolo tie to the mix.</p>
+        <p>So yeah, I guess what I'm trying to say is that React only cares about bolo ties.</p>
+        <br><img  src='blog4_images/bolo-tie.jpg' alt='bolo tie' width="400" height="auto"><br>
+
+        <p>Finally, it would be irresponsible if I didn't impart my wisdom of <strong>state</strong> after three whole days of working with React. The components of your outfit define the state of your identity at this point in your life. The components are also what your little brother uses to compare what's different and change things up. How does he know what components make up your identity, well because you pass on your good looks each time you step out of your bedroom and into public spaces. He then compares his looks against your good looks, with an emphasis on what's different between you two.</p><br>
+        <p>So how does this relate to React? Your identity is the state of all your components. You hold these dearly to yourself at the top level, but you deliberately pass along certain attributes of your state each time you enter a public space. This time, replace your little brother with a bastard child, because the element is actually a child (not a sibling) in nerd talk. Each time you incoporate a child component, you have the opportunity to pass attributes of your state to that child. You also get to name that bastard. See the example below.</p>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <hr class="gradient">
       <div id="post1" class="row featurette">
       <div class="col-md-7 col-md-push-5">
         <h2 id="Capybara_testing" class="featurette-heading">Capybara testing <span class="text-muted">interact like your audience!</span></h2>
@@ -169,7 +213,7 @@
 
       <div id="commands" class = "lead container">
         </p>
-        <p class='blog1_text'>First, take a peek at some of the basic commands. For more commands, checkout out this <a href='https://upcase.com/test-driven-rails-resources/capybara.pdf'><i>cheatsheet</i></a>.<br></a> 
+        <p class='blog1_text'>First, take a peek at some of the basic commands. For more commands, checkout out this <a href='https://upcase.com/test-driven-rails-resources/capybara.pdf'><i>cheatsheet</i></a>.<br></a>
         <img src='blog1_images/basic_commands.png' alt='basic commands' width="600">
       </div>
 
@@ -181,7 +225,7 @@
 
       <div class = "lead container">
         <p> If you're still getting an Ambiguous match error, your first instinct should be to scope with greater specificity. Create a unique CSS identifier and use a within loop.
-        <p> This is a more specific example of scoping from a different project. Notice how we find the ordered list (ol) with the id of <i>#most_pop_referrers_list</i>. Then we further specify that we want the list item's <i>(li) nth-child(#)</i>, where # is the number of the list element. For example, <i>'ol#most_pop_referrers_list li:nth-child(1)</i>' will scope the second element of the list. Then it will check for the turing url: <i>"http://turing.io (2)</i>" </p> 
+        <p> This is a more specific example of scoping from a different project. Notice how we find the ordered list (ol) with the id of <i>#most_pop_referrers_list</i>. Then we further specify that we want the list item's <i>(li) nth-child(#)</i>, where # is the number of the list element. For example, <i>'ol#most_pop_referrers_list li:nth-child(1)</i>' will scope the second element of the list. Then it will check for the turing url: <i>"http://turing.io (2)</i>" </p>
       </a> <img src='blog1_images/scoping_2.png' alt='More Scoping' width="auto" height="500">
       </div>
 
@@ -189,12 +233,13 @@
         <p class='blog1_text'><strong>Installation:</strong> Make sure you have the Capybara gem installed and bundled in your test/development environment. If you are using Rails with MiniTest, head to your test_heler.rb file. Require 'capybara/rails' at the top. Next, define a class that inherits from Minitest, and include Capybara::DSL. Note that in the first test above, the UserEditsTask testing class inherits from FeatureTest as opposed to Minitest::Test. That's because the FeatureTest inherits from Minitest, thus it includes Capybara::DSL.<br></a> <img  src='blog1_images/test_helper.png' alt='linking in test_helper' width="auto" height="150">
         </p><br>
         <p><strong>Pro Tip:</strong> The most frustrating error with Capybara is generally due to scoping issues. Head to your Gemfile and require the <i>gem 'launchy'</i> in your test development environment. Next, insert <strong>save_and_open_page</strong> into your test (generally the line before it fails) and run your test. Launchy will open a display page in your browser so you can see what's happening. Next, right click on the area you're interested in and select "inspect element." This will give you access to the CSS components you can use for scoping.</p>
-        <p><strong>Pro Tip:</strong> It's good practice to assert the page you are viewing on the route you'd expect. Do this with: <br><strong>assert_equal expected_path(variable), current_path</strong> <br> Modify the expected_path(variable) to what you expect. The "variable" is any variable that is necessary for the route to display, such as an object that rails can pull an id from.</p> 
+        <p><strong>Pro Tip:</strong> It's good practice to assert the page you are viewing on the route you'd expect. Do this with: <br><strong>assert_equal expected_path(variable), current_path</strong> <br> Modify the expected_path(variable) to what you expect. The "variable" is any variable that is necessary for the route to display, such as an object that rails can pull an id from.</p>
       </div>
 
       <div class="lead container">
       <p class='blog1_text'>There's much more to explore with Capybara, but hopefully by now you understand that it can be a powerful tool for feature testing. If you're goal is a positive user experience, get to work with Capybara!</p>
-      
+
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
     <hr class="gradient">
         <div class="lead container">
@@ -214,7 +259,7 @@
 
       <div id="commands" class = "lead container">
         </p>
-        <p class='blog1_text'>First, take a peek at the matchers methods you will use in your specs. Checkout out the <a href='http://matchers.shoulda.io/'><i>cheatsheet</i></a> too.<br></a> 
+        <p class='blog1_text'>First, take a peek at the matchers methods you will use in your specs. Checkout out the <a href='http://matchers.shoulda.io/'><i>cheatsheet</i></a> too.<br></a>
         <img src='blog2_images/matchers.png' alt='matchers' width="800">
 
       <div class = "lead container">
@@ -247,11 +292,11 @@
         <p><strong>Pro Tip:</strong> Remember to update your strong_params private methods if you start requiring an attribute that wasn't previously part of a form or is new to the schema. I spent about an hour tracing a bug back to the fact that I hadn't updated the permitted attributes.</p>
 
        <br><p><strong>Installation:</strong><br>
-        For RSpec: First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle. Then head over to your rails_helper.rb file and insert the following lines of code. Don't forget to add the error flashes in your controllers as you proceed. 
+        For RSpec: First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle. Then head over to your rails_helper.rb file and insert the following lines of code. Don't forget to add the error flashes in your controllers as you proceed.
         <br>
         <br><img  src='blog2_images/configuration.png' alt='configuring test helper' width="700" height="auto">
-        <br><p>If you are using MiniTest, you will need to install both: <br>gem 'shoulda', '~> 3.5' 
-        <br>gem 'shoulda-matchers', '~> 2.0' 
+        <br><p>If you are using MiniTest, you will need to install both: <br>gem 'shoulda', '~> 3.5'
+        <br>gem 'shoulda-matchers', '~> 2.0'
         <br>
         MiniTest does not require any additional setup once these two gems are installed and bundled. The functionality is the same, except you will use "should validate..." in place of the "it {is_expected_to validate...}." Don't forget to add the error flashes in your controllers as you proceed. </p>
         <br>
@@ -262,6 +307,73 @@
 
       <hr class="gradient">
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<hr class="gradient">
+        <div class="lead container">
+        <div class="row featurette">
+        <div class="col-md-7">
+          <h2 id="Shoulda-Matchers" class="featurette-heading">Amazon Web Services <span class="text-muted">S3 Cloud Storage for Images</span></h2>
+          <p class="lead">If your Paperclip images won't persist on you website, integrate <a href='http://matchers.shoulda.io/'><strong>AWS C3</strong></a>!</p>
+          <p class="lead"> Shoulda matchers is a gem that allows developers to simplify validation testing with a new suite of testing methods called <i>matchers</i>. Accordingly, validations can generally be tested in one clean line rather than lengthy, redundant tests.</p>
+      </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="images/CrowFlight.png" alt="Crow Flight">
+        </div>
+      </div>
+      </div>
+
+      <div id="commands" class = "lead container">
+        </p>
+        <p class='blog1_text'>First, take a peek at the matchers methods you will use in your specs. Checkout out the <a href='http://matchers.shoulda.io/'><i>cheatsheet</i></a> too.<br></a>
+        <img src='blog2_images/matchers.png' alt='matchers' width="800">
+
+      <div class = "lead container">
+        <p> Now for an example. We define our validations in the model. The goal here is to ensure that a Resort Object can not be added to the database unless it meets all of the criteria defined in the validations. Ideally, we want Rails to throw an error if any of the validations aren't met.
+          <br><br>
+           In each model, we define the validations. Each Resort Object must have the presence of a name, image_path, trail_map_path, etc. Further, the name, image_path, and trail_map_path must be unique in this scenario.<br>
+        <br><img  src='blog2_images/model_validations.png' alt='model validations' width="800" height="auto"><br>
+
+        <p> These validations are fantastic if they work, but we want to <i>verify our verifications</i> with some tests in the resort_spec.rb (resort_test.rb in MiniTest). Without Shoulda Matchers, we would have to write specific tests for each validation that fulfill all of the criteria except for the validation we want to test. This is cumbersome and violates the DRY principle. Shoulda Matchers allows a uniform, clear, and short format. The following example is an RSpec example, but it's rather <strong>boring</strong> because the tests all pass. All of the validations are fulfilled.<br>
+        <br><img  src='blog2_images/model_validations_spec.png' alt='model validations test' width="800" height="auto"><br>
+
+        <br><p> Now, the main event! We are more interested in what happens to the site when all of the validations are NOT fulfilled. If a Resort Object is created or updated, but doesn't meet these specifications, we want a test to fail and notify you of the missing or incorrect attribute.<br>
+        <br> Notice that we have a validation for :something_that_doesnt_exist. The test will fail because we are expecting a Resort Object to have this attribute, but it doesn't exist in the schema, nor is this attribute ever associated with the Resort Object. The error is apparent in the failed test in the second image.<br>
+        <br><img src='blog2_images/missing_validation.png' alt='invalid attribute example' width="800" height="auto"><br>
+        <br><img  src='blog2_images/failed_test.png' alt='failing test' width="800" height="auto"><br>
+
+        <br><p> Shoot! Now you have your models validations, test validations, and a failing test, but you're still getting an error message like the one below! The reason is that Shoulda Matcher validations expect(RSpec) or should(MiniTest) display an error.<br>
+        <br><img  src='blog2_images/view_failure.png' alt='expected message failure' width="700" height="auto"><br>
+
+
+        <br><p> In practice, I prefer to add flashes to display messages during sad path tests. If a new object is being created but doesn't save because it fails a validation, I want a particular error to show up.<br>
+        First, add flashes to your app/layouts/application.html.erb file somewhere in the body section. The standard is to place these above the <%= yield %> so it catches the users eye when a form or other information if filled out incorrectly.<br>
+        <br><img  src='blog2_images/Flashes.png' alt='flash integration' width="400" height="auto"><br>
+        <br>
+        <p>Then add flash messages into your controller when you want them to be displayed. Disclaimer, this is from a different, top secret project.</p>
+        <br><img  src='blog2_images/controller_flash.png' alt='flash integration in the controller' width="700" height="auto"><br>
+        <br><p>Another option is to display the error messages directly in the layout/applicaiton.html.erb file.</p>
+        <br><img  src='blog2_images/views.png' alt='views error integration' width="700" height="auto"><br>
+        <br>
+        <p><strong>Pro Tip:</strong> Remember to update your strong_params private methods if you start requiring an attribute that wasn't previously part of a form or is new to the schema. I spent about an hour tracing a bug back to the fact that I hadn't updated the permitted attributes.</p>
+
+       <br><p><strong>Installation:</strong><br>
+        For RSpec: First, place gem 'shoulda-matchers' in the test environment of your Gemfile. Don'f forget to Bundle. Then head over to your rails_helper.rb file and insert the following lines of code. Don't forget to add the error flashes in your controllers as you proceed.
+        <br>
+        <br><img  src='blog2_images/configuration.png' alt='configuring test helper' width="700" height="auto">
+        <br><p>If you are using MiniTest, you will need to install both: <br>gem 'shoulda', '~> 3.5'
+        <br>gem 'shoulda-matchers', '~> 2.0'
+        <br>
+        MiniTest does not require any additional setup once these two gems are installed and bundled. The functionality is the same, except you will use "should validate..." in place of the "it {is_expected_to validate...}." Don't forget to add the error flashes in your controllers as you proceed. </p>
+        <br>
+        <p><strong>Pro Tip:</strong> If you are using MiniTest, DO NOT put the validations inside of a test. Nest them right under the model or you will get an error along the lines of "undefined method: should." See the example below.</p><br>
+        <br><img src='blog2_images/minitest_example.png' alt='MiniTest Example' width="600" height="auto"><br>
+      </div>
+    </div>
+
+      <hr class="gradient">
       <!-- /END THE FEATURETTES -->
 
       <!-- FOOTER -->
